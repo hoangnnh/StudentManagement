@@ -93,7 +93,7 @@ int main() {
         }
     }
 
-    myClass.writeDataToFile("./LopHoc.txt");
+    myClass.writeDataToFile("LopHoc.txt");
 
     return 0;
 }

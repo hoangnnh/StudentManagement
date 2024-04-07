@@ -5,7 +5,7 @@
 
 using std::cout;
 using std::endl;
-using std::fstream;
+using std::ofstream;
 
 
 void Classroom::initialize() {
@@ -85,8 +85,10 @@ void Classroom::viewStudentsAbove8() {
 }
 
 void Classroom::writeDataToFile(string fileName) {
-    fstream myFile;
+    ofstream myFile;
     myFile.open(fileName);
+
+    cout << "Mo file " << fileName << (myFile.is_open() ? " thanh cong." : " khong thanh cong.") << endl;
 
     if (myFile.is_open()) {
         myFile << studentList.size() << endl;
@@ -97,10 +99,10 @@ void Classroom::writeDataToFile(string fileName) {
             myFile << data.getPhoneNumber() << endl;
             myFile << data.getAvgPoint() << endl;
         }
-        cout << "Viet vao file thanh cong.\n";
-    } else {
-        cout << "Mo file khong thanh cong.\n";
+
+        cout << "Viet vao file " << fileName << " thanh cong." << endl;
     }
+
 
     myFile.close();
 }
